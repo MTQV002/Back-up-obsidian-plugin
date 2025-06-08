@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+npm-debug.log*
+
+# Environment variables
+.env
+config.json
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# API keys (security)
+api_keys.txt
+
+# Local TTS cache
+models/
+cache/
+*.model
+
+# Build artifacts
+dist/
+build/
+*.zip
+
+# Logs
+*.log

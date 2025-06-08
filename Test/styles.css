@@ -1,0 +1,842 @@
+/* LLM Dictionary - Modern Glassmorphism Edition */
+
+:root {
+    /* Modern Color Palette */
+    --dict-primary: #0f172a;
+    --dict-secondary: #334155;
+    --dict-accent: #3b82f6;
+    --dict-success: #10b981;
+    --dict-warning: #f59e0b;
+    --dict-error: #ef4444;
+    --dict-border: rgba(255,255,255,0.1);
+    --dict-bg-light: rgba(255,255,255,0.05);
+    --dict-bg-card: rgba(255,255,255,0.95);
+    --dict-bg-glass: rgba(255,255,255,0.08);
+    --dict-text-muted: #64748b;
+    --dict-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    --dict-shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+    --dict-radius: 16px;
+    --dict-blur: blur(20px);
+    
+    /* Glass Effects */
+    --glass-bg: rgba(255,255,255,0.08);
+    --glass-border: rgba(255,255,255,0.12);
+    --glass-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+}
+
+/* Background Pattern */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #3b82f6 50%, #1e40af 75%, #1e3a8a 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    min-height: 100vh;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Main Dictionary Container - Glassmorphism */
+.dictionary-entry {
+    max-width: 760px;
+    margin: 40px auto 0 auto;
+    padding: 32px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--dict-radius);
+    -webkit-backdrop-filter: var(--dict-blur);
+    backdrop-filter: var(--dict-blur);
+    box-shadow: var(--glass-shadow);
+    font-family: 'Inter', 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.7;
+    color: var(--text-normal);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.dictionary-entry::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+}
+
+.dictionary-entry:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--dict-shadow-hover);
+    border-color: rgba(255,255,255,0.15);
+}
+
+/* Word Header - Enhanced */
+.word-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+}
+
+.word-term {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--dict-primary);
+    margin: 0;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.word-type {
+    background: var(--gradient-accent);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.word-type:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+}
+
+/* Pronunciation Section - Glass Effect */
+.pronunciation {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 32px;
+    padding: 20px 24px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    -webkit-backdrop-filter: var(--dict-blur);
+    backdrop-filter: var(--dict-blur);
+    border-left: 4px solid var(--dict-accent);
+    min-height: 60px;
+    transition: all 0.3s ease;
+}
+
+.pronunciation:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateX(4px);
+}
+
+.ipa {
+    font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', monospace;
+    font-size: 1.3rem;
+    color: var(--dict-secondary);
+    font-weight: 500;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+.audio-btn {
+    background: var(--gradient-accent);
+    color: white;
+    border: none;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.audio-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transition: all 0.5s;
+    transform: translate(-50%, -50%);
+}
+
+.audio-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+}
+
+.audio-btn:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.audio-btn:active {
+    transform: scale(0.95);
+}
+
+/* Definition Sections - Modern Cards */
+.definitions {
+    margin: 32px 0;
+}
+
+.definition-section, .vietnamese-section {
+    margin: 16px 0;
+    padding: 24px;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--glass-border);
+    -webkit-backdrop-filter: var(--dict-blur);
+    backdrop-filter: var(--dict-blur);
+    position: relative;
+    overflow: hidden;
+}
+
+.definition-section {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.05) 100%);
+    border-left: 4px solid var(--dict-accent);
+}
+
+.vietnamese-section {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(251, 191, 36, 0.05) 100%);
+    border-left: 4px solid var(--dict-warning);
+}
+
+.definition-section:hover, .vietnamese-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
+
+.definition-section h4, .vietnamese-section h4 {
+    margin: 0 0 16px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dict-secondary);
+    opacity: 0.9;
+}
+
+.definition-section p, .vietnamese-section p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-normal);
+    line-height: 1.6;
+}
+
+/* Examples Section - Enhanced */
+.examples {
+    margin: 36px 0;
+}
+
+.examples h4 {
+    color: var(--dict-secondary);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.example-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.example-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 20px 24px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    -webkit-backdrop-filter: var(--dict-blur);
+    backdrop-filter: var(--dict-blur);
+    border-left: 4px solid var(--dict-success);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.example-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.3), transparent);
+}
+
+.example-item:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 12px 32px rgba(16, 185, 129, 0.15);
+    background: rgba(255,255,255,0.12);
+}
+
+.example-item p {
+    margin: 0;
+    flex: 1;
+    line-height: 1.6;
+    padding-right: 16px;
+    font-size: 1.05rem;
+    color: var(--dict-primary);
+}
+
+/* Highlighted terms - Modern underline */
+.example-item p strong,
+.dictionary-entry strong {
+    font-weight: 600;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--dict-accent), #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.example-item p strong::after,
+.dictionary-entry strong::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-accent);
+    border-radius: 1px;
+}
+
+/* Synonyms and Antonyms - Glass Cards */
+.synonyms-antonyms {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 32px 0;
+}
+
+@media (max-width: 600px) {
+    .synonyms-antonyms {
+        grid-template-columns: 1fr;
+    }
+}
+
+.synonyms, .antonyms {
+    padding: 20px;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--glass-border);
+    -webkit-backdrop-filter: var(--dict-blur);
+    backdrop-filter: var(--dict-blur);
+    position: relative;
+    overflow: hidden;
+}
+
+.synonyms {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(52, 211, 153, 0.05) 100%);
+    border-left: 4px solid var(--dict-success);
+}
+
+.antonyms {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(248, 113, 113, 0.05) 100%);
+    border-left: 4px solid var(--dict-error);
+}
+
+.synonyms:hover, .antonyms:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.synonyms h4, .antonyms h4 {
+    margin: 0 0 12px 0;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.synonyms h4 {
+    color: var(--dict-success);
+}
+
+.antonyms h4 {
+    color: var(--dict-error);
+}
+
+/* Action Buttons - Premium Style */
+.actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.save-btn, .anki-btn {
+    flex: 1;
+    padding: 16px 0;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.save-btn {
+    background: var(--gradient-success);
+    color: white;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
+}
+
+.save-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(16, 185, 129, 0.35);
+}
+
+.anki-btn {
+    background: var(--gradient-accent);
+    color: white;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+}
+
+.anki-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.35);
+}
+
+.save-btn:active, .anki-btn:active {
+    transform: translateY(0);
+}
+
+/* Button Ripple Effect */
+.save-btn::before, .anki-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transition: all 0.5s;
+    transform: translate(-50%, -50%);
+}
+
+.save-btn:hover::before, .anki-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Modal Enhancements */
+.modal-content {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--dict-blur);
+    backdrop-filter: var(--dict-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--dict-radius);
+}
+
+/* Anki Card Creation Modal - Modern Glassmorphism */
+.anki-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    animation: modalFadeIn 0.3s ease forwards;
+}
+
+@keyframes modalFadeIn {
+    to { opacity: 1; }
+}
+
+.anki-modal-content {
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--dict-radius);
+    -webkit-backdrop-filter: var(--dict-blur);
+    backdrop-filter: var(--dict-blur);
+    box-shadow: var(--glass-shadow);
+    padding: 32px;
+    position: relative;
+    overflow-y: auto;
+    transform: scale(0.9) translateY(20px);
+    animation: modalSlideIn 0.3s ease forwards;
+}
+
+@keyframes modalSlideIn {
+    to {
+        transform: scale(1) translateY(0);
+    }
+}
+
+.anki-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.anki-modal-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.anki-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--dict-text-muted);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.anki-modal-close:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--dict-error);
+    transform: rotate(90deg);
+}
+
+/* Anki Form Styling */
+.anki-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.anki-form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.anki-form-label {
+    font-weight: 600;
+    color: var(--dict-secondary);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.anki-form-input,
+.anki-form-select,
+.anki-form-textarea {
+    padding: 16px 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--text-normal);
+    -webkit-backdrop-filter: var(--dict-blur);
+    backdrop-filter: var(--dict-blur);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    font-family: inherit;
+}
+
+.anki-form-input:focus,
+.anki-form-select:focus,
+.anki-form-textarea:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--dict-accent);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.anki-form-textarea {
+    min-height: 100px;
+    resize: vertical;
+    font-family: inherit;
+    line-height: 1.6;
+}
+
+.anki-form-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 16px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 48px;
+}
+
+/* Recommended Note Type Styling */
+.anki-recommendation {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(251, 191, 36, 0.05) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-left: 4px solid var(--dict-warning);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.anki-recommendation-icon {
+    color: var(--dict-warning);
+    font-size: 1.2rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.anki-recommendation-text {
+    font-size: 0.95rem;
+    color: var(--dict-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Form Actions */
+.anki-form-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.anki-btn-primary,
+.anki-btn-secondary {
+    flex: 1;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.anki-btn-primary {
+    background: var(--gradient-accent);
+    color: white;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+}
+
+.anki-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.35);
+}
+
+.anki-btn-secondary {
+    background: var(--glass-bg);
+    color: var(--dict-secondary);
+    border: 1px solid var(--glass-border);
+    -webkit-backdrop-filter: var(--dict-blur);
+    backdrop-filter: var(--dict-blur);
+}
+
+.anki-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.anki-btn-primary:active,
+.anki-btn-secondary:active {
+    transform: translateY(0);
+}
+
+/* Button Loading State */
+.anki-btn-loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+    position: relative;
+}
+
+.anki-btn-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Success/Error Messages */
+.anki-message {
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    -webkit-backdrop-filter: var(--dict-blur);
+    backdrop-filter: var(--dict-blur);
+}
+
+.anki-message-success {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(52, 211, 153, 0.05) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: var(--dict-success);
+}
+
+.anki-message-error {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(248, 113, 113, 0.05) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: var(--dict-error);
+}
+
+/* Responsive Design for Modal */
+@media (max-width: 768px) {
+    .anki-modal-content {
+        width: 95%;
+        padding: 24px;
+        margin: 20px;
+        max-height: 85vh;
+    }
+    
+    .anki-modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .anki-form-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .anki-form-input,
+    .anki-form-select,
+    .anki-form-textarea {
+        padding: 14px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .anki-modal-content {
+        width: 98%;
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .anki-modal-header {
+        margin-bottom: 24px;
+    }
+    
+    .anki-form {
+        gap: 20px;
+    }
+}
+
+/* Dark Mode Support for Anki Modal */
+.theme-dark .anki-modal-content {
+    background: rgba(15, 23, 42, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-dark .anki-form-input,
+.theme-dark .anki-form-select,
+.theme-dark .anki-form-textarea {
+    background: rgba(15, 23, 42, 0.3);
+    color: #e2e8f0;
+}
+
+.theme-dark .anki-form-input::placeholder,
+.theme-dark .anki-form-textarea::placeholder {
+    color: #64748b;
+}
+
+/* Smooth Page Transitions */
+@media (prefers-reduced-motion: no-preference) {
+    * {
+        transition-duration: 0.3s;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .dictionary-entry {
+        border: 2px solid var(--dict-accent);
+    }
+    
+    .audio-btn {
+        border: 2px solid white;
+    }
+}

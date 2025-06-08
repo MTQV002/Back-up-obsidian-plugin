@@ -1,0 +1,11 @@
+{
+	"id": "llm-dictionary-anki",
+	"name": "LLM Dictionary with Anki Integration",
+	"version": "1.4.0",
+	"minAppVersion": "0.15.0",
+	"description": "AI-powered dictionary with advanced Anki Connect integration for automated flashcard creation",
+	"author": "LLM Dictionary Team",
+	"authorUrl": "https://github.com/your-repo/llm-dictionary",
+	"fundingUrl": "https://buymeacoffee.com/llmdictionary",
+	"isDesktopOnly": false
+}
